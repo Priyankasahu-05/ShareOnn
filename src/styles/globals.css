@@ -1,0 +1,65 @@
+/* Accordion open/close animations for Radix */
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+/* Smooth scrollbar — visible only while scrolling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(79, 110, 247, 0.18) transparent;
+}
+*::-webkit-scrollbar { width: 5px; height: 5px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb {
+  background: rgba(79, 110, 247, 0.18);
+  border-radius: 999px;
+}
+
+/* Base fonts */
+body { font-family: var(--font-body, 'Inter', sans-serif); }
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading, 'Poppins', sans-serif); }
+
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
+
+/* Human touch: slightly warmer text selection */
+::selection {
+  background: rgba(79, 110, 247, 0.2);
+  color: inherit;
+}
+
+/* Focus visible outline — accessible but subtle */
+:focus-visible {
+  outline: 2px solid rgba(79, 110, 247, 0.55);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Dark mode: TikTok and X logos are black — invert them */
+.dark .tiktok-logo, .dark .x-logo {
+  filter: invert(1);
+}
+
+/* Heatmap cells in dark mode */
+.dark .streak-cell-empty {
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Subtle link hover for footer */
+a:not([class]) {
+  color: var(--brand-indigo);
+  text-decoration: none;
+}
+a:not([class]):hover {
+  text-decoration: underline;
+}
+
+/* Micro-interaction: buttons that don't have explicit transition */
+button {
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
